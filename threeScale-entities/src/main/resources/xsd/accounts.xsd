@@ -1,0 +1,29 @@
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+
+	<xs:include schemaLocation="plans.xsd" />
+	<xs:include schemaLocation="users.xsd" />
+
+	<xs:element name="accounts">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="account" maxOccurs="unbounded"
+					minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:long" name="id" />
+							<xs:element type="xs:dateTime" name="created_at" />
+							<xs:element type="xs:dateTime" name="updated_at" />
+							<xs:element type="xs:string" name="state" />
+							<xs:element type="xs:string" name="org_name" />
+							<xs:element type="xs:string" name="extra_fields" />
+							<xs:element type="xs:string" name="credit_card_stored" />
+							<xs:element type="plansType" name="plans" />
+							<xs:element type="usersType" name="users" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

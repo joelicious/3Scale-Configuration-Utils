@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.redhat.threescale</groupId>
+	<artifactId>threescale-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<packaging>pom</packaging>
+	<name>3Scale parent POM</name>
+
+	<description>parent and aggregate POM for three scale utilities</description>
+
+	<properties>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<compiler.source.version>1.8</compiler.source.version>
+		<compiler.target.version>1.8</compiler.target.version>
+
+		<jboss.fuse.bom.version>6.3.0.redhat-187</jboss.fuse.bom.version>
+		<artemis.version>2.0.0.amq-700013-redhat-1</artemis.version>
+		<maven-jaxb2-plugin.version>0.8.3</maven-jaxb2-plugin.version>
+		<maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
+		<maven-resources-plugin.version>2.6</maven-resources-plugin.version>
+		<build-helper-maven-plugin-version>1.10</build-helper-maven-plugin-version>
+
+		<version.maven-compiler-plugin>3.5.1</version.maven-compiler-plugin>
+	</properties>
+
+	<modules>
+		<module>threeScale-entities</module>
+		<module>fetchConfiguration</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.jboss.fuse.bom</groupId>
+				<artifactId>jboss-fuse-parent</artifactId>
+				<version>${jboss.fuse.bom.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>jboss.releases</id>
+			<name>JBoss Fuse Release Repository</name>
+			<url>https://repository.jboss.org/nexus/content/repositories/fs-releases/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>jboss.ea</id>
+			<name>JBoss Fuse Early Access Release Repository</name>
+			<url>https://repository.jboss.org/nexus/content/groups/ea/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
+
+</project>
